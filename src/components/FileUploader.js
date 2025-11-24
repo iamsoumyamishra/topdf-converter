@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 import { Upload, File, X } from "lucide-react";
 
-export default function FileUploader({ onFilesSelected }) {
+export default function FileUploader({ onFilesSelected, accept }) {
     const [isDragging, setIsDragging] = useState(false);
     const fileInputRef = useRef(null);
 
@@ -49,7 +49,7 @@ export default function FileUploader({ onFilesSelected }) {
                 ref={fileInputRef}
                 onChange={handleFileInput}
                 multiple
-                accept=".docx,.txt,.jpg,.jpeg,.png"
+                accept={accept || ".docx,.txt,.jpg,.jpeg,.png"}
                 style={{ display: "none" }}
             />
             <div className="flex-col flex-center gap-4">
